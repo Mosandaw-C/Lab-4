@@ -10,18 +10,30 @@ Write a program that tabulates the values of a, a3, |a| and sin(a) using 4 decim
 */
 #include <stdio.h>
 
-???cube()//<-- Function header, input parameters and output type in this form oType NAME(iType1 iName1,iType2 iName2,...)
-{//here starts what to do
 
-//reurn with the result of the funcion (if any)
-}//that closes the function
-
+// We defined the function and used float for the parameter
+double cube(double  x){
+	return x * x * x;
+}
 /*Write the other functions here:*/
+
+double abso(float x) {
+
+	if (x < 0.0)
+		x = -1 * x;
+	return x ;
+}
 
 
 int main() //main is a function!
 {
 //call the functions in a loop to print the results in the required manner
+
+	for (double  i = -1; i < 1; i= i + 0.1){
+	
+	printf("a %+6f abs %6f cube %+6f\n", i , abso(i) , cube(i));
+	}
+
 
   return 0; //it returns an integer (as promised in the header) which is 0 for now!
 }

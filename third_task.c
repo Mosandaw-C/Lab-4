@@ -12,8 +12,46 @@ Top-down: when solving programming problems by breaking them down into smaller a
 
 #include <stdio.h>
 
-int main(){
+int HasDigitFive(int num) {
+    while (num > 0) {
+        if (num % 10 == 5) return 1;
+        num /= 10;
+    }
+    return 0;
+}
 
+int IsPrime(int Num) {
+    if (Num <= 1) return 0;  // 0 and 1 are not prime
 
-  return 0;
+    for (int i = 2; i * i <= Num; i++) {
+        if (Num % i == 0) {
+            return 0;  // Not prime
+        }
+    }
+    return 1;  // Prime
+
+}
+
+int main() {
+    int count = 0;
+    int i = 3;
+
+    while (1) {
+        if (IsPrime(i) && IsPrime(i + 2)) {
+            count++;
+            if (count == 60) {
+                printf("60th twin prime pair: (%d, %d)\n", i, i + 2);
+                int between = i + 1;
+                if (HasDigitFive(between)) {
+                    printf("The number between them (%d) contains the digit 5.\n", between);
+                } else {
+                    printf("The number between them (%d) does NOT contain the digit 5.\n", between);
+                }
+                break;
+            }
+        }
+        i++;
+    }
+
+    return 0;
 }

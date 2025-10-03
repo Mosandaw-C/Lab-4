@@ -14,8 +14,48 @@ Realize each operation in a (tiny) function that receives the value of n as a pa
 
 #include <stdio.h>
 
-int main(){
+int Restore(int n) { return 1; }
+int Add(int n) { return n + 1; }
+int Negate(int n) { return -n; }
+int Multiply(int n) { return n * 2; }
 
+
+int main(){
+    int n = 1;
+    int choice;
+
+    do {
+        printf("\nCurrent value of n: %d\n", n);
+        printf("0. Restore the initial value (n = 1)\n"
+               "1. Add 1\n"
+               "2. Negate the number (+/-)\n"
+               "3. Multiple by 2\n"
+               "9. Exit\n");
+
+        printf("Select an option: ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 0:
+                n = Restore(n);
+                break;
+            case 1:
+                n = Add(n);
+                break;
+            case 2:
+                n = Negate(n);
+                break;
+            case 3:
+                n = Multiply(n);
+                break;
+            case 9:
+                printf("Exiting the program.\n");
+                break;
+            default:
+                printf("Invalid choice! Please select a valid option.\n");
+        }
+
+    } while (choice != 9);
 
   return 0;
 }

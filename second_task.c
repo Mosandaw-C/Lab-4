@@ -15,11 +15,31 @@ There are character handling library functions in #include <ctype.h>. One of the
 for any other character it returns the original character.
 
 */
-
-
 #include <stdio.h>
+#include <ctype.h>
+
+
+int Isvowel(char c){
+	if (c=='a' || c=='e' || c=='i' || c=='o' || c=='u')
+		return 1;
+	if (c=='A' || c=='E' || c=='I' || c=='O' || c=='U')
+		return 2;
+	else
+		return 0;	
+}
+
 
 int main(){
+    char c;
+    while (scanf("%c", &c) == 1) {
+        int v = Isvowel(c); // store the result
+        if (v == 1)
+            printf("%ch%c", c, c);
+        else if (v == 2)
+            printf("%ch%c", c, tolower(c));
+        else
+            printf("%c", c);
+    }
 
 return 0;
 }
